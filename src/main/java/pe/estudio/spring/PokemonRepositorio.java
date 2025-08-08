@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 public class PokemonRepositorio {
-    private Map<Integer, Pokemon> pokemons = new HashMap<>();
+    private Map<Integer, Pokemon> pokemones = new HashMap<>();
     private int contadorId=1;
 
     public PokemonRepositorio() {
@@ -15,17 +15,17 @@ public class PokemonRepositorio {
 
     public Pokemon capturarPokemon(String nombre,String tipo){
         Pokemon pokemon=new Pokemon(this.contadorId++, nombre, tipo);
-        pokemons.put(pokemon.getId(), pokemon);
+        pokemones.put(pokemon.getId(), pokemon);
         System.out.println("⚡ ¡Capturaste a " + pokemon.getNombre() + "!");
         return pokemon;
     }
 
     public Pokemon buscarPokemon(int id) {
-        return pokemons.get(id);
+        return pokemones.get(id);
     }
 
     public List<Pokemon> obtenerTodos(){
-        return new ArrayList<>(pokemons.values());
+        return new ArrayList<>(pokemones.values());
     }
 
     public void entrenar(int id,int experiencia){
@@ -36,8 +36,8 @@ public class PokemonRepositorio {
     }
 
     public void liberarPokemon(int id) {
-        if (pokemons.containsKey(id)) {
-            pokemons.remove(id);
+        if (pokemones.containsKey(id)) {
+            pokemones.remove(id);
             System.out.println("🗑️ ¡Has liberado al Pokémon con ID " + id + "!");
         } else {
             System.out.println("❌ No se encontró un Pokémon con ID " + id + ".");

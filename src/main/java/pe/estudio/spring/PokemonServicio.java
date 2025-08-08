@@ -11,6 +11,9 @@ public class PokemonServicio {
     }
 
     public Pokemon capturarPokemon(String nombre, String tipo) {
+        if (nombre == null || nombre.trim().isEmpty()) {
+            throw new IllegalArgumentException("¡No puedes capturar un Pokémon sin nombre!");
+        }
         return pokemonRepositorio.capturarPokemon(nombre, tipo);
     }
 

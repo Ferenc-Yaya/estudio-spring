@@ -1,13 +1,17 @@
 package pe.estudio.spring;
 
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 
+@Service
 public class PokemonServicio {
     private PokemonRepositorio pokemonRepositorio;
 
+    // ✅ SIN @Autowired - Spring lo detecta automáticamente (constructor único)
     public PokemonServicio(PokemonRepositorio pokemonRepositorio) {
         this.pokemonRepositorio = pokemonRepositorio;
-        System.out.println("🔧 MANUALMENTE creando PokemonServicio...");
+        System.out.println("🔧 SPRING creando PokemonServicio e inyectando repositorio automáticamente...");
     }
 
     public Pokemon capturarPokemon(String nombre, String tipo) {

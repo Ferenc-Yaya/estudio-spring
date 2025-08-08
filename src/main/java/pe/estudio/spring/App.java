@@ -1,9 +1,12 @@
 package pe.estudio.spring;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
 public class App {
     public static void main(String[] args) {
-        PokemonRepositorio pokemonRepositorio=new PokemonRepositorio();
-        PokemonServicio pokemonServicio=new PokemonServicio(pokemonRepositorio);
+        ApplicationContext context=new AnnotationConfigApplicationContext(Configuracion.class);
+        PokemonServicio pokemonServicio = context.getBean(PokemonServicio.class);
         System.out.println("🌟 ¡Bienvenido al mundo Pokémon! 🌟");
 
         pokemonServicio.capturarPokemon("Pikachu", "Eléctrico");

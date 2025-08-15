@@ -1,7 +1,10 @@
 package pe.estudio.spring;
 
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 
+@Service
 public class PokemonServicio {
     private PokemonRepositorio pokemonRepositorio;
 
@@ -58,6 +61,14 @@ public class PokemonServicio {
         System.out.println("Pokémon capturados: " + totalPokemon);
         System.out.println("Nivel promedio: " + nivelPromedio);
         System.out.println("======================\n");
+    }
+
+    public Pokemon buscarPorId(int id) {
+        return pokemonRepositorio.buscarPokemon(id);
+    }
+
+    public List<Pokemon> obtenerTodos() {
+        return pokemonRepositorio.obtenerTodos();
     }
 
 }

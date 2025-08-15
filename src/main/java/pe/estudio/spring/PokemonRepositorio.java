@@ -1,10 +1,14 @@
 package pe.estudio.spring;
 
+import org.springframework.stereotype.Repository;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
+@Repository
 public class PokemonRepositorio {
     private Map<Integer, Pokemon> pokemones = new HashMap<>();
     private int contadorId=1;

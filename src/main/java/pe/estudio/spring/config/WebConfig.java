@@ -17,14 +17,14 @@ public class WebConfig implements WebMvcConfigurer {
         System.out.println("🌐 Creando WebConfig - Configuración Spring MVC");
     }
 
-    // Configurar dónde están los archivos HTML
+    // Configurar dónde están los archivos JSP
     @Bean
     public ViewResolver viewResolver() {
-        System.out.println("📄 Configurando ViewResolver para HTML");
+        System.out.println("📄 Configurando ViewResolver para JSP");
 
         InternalResourceViewResolver resolver = new InternalResourceViewResolver();
         resolver.setPrefix("/WEB-INF/views/");   // Carpeta donde están las vistas
-        resolver.setSuffix(".html");             // Extensión de las vistas
+        resolver.setSuffix(".jsp");              // Cambiar a .jsp
         resolver.setViewClass(org.springframework.web.servlet.view.JstlView.class);
 
         return resolver;
